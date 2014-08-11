@@ -1,0 +1,18 @@
+<html>
+<head>
+	<script type='text/javascript'>
+	var sock = new WebSocket("ws://127.0.0.1:8080/data");
+	sock.onmessage = function (event) {
+		var out = document.getElementById('out')
+		var li = document.createElement("li");
+		li.innerHTML = event.data
+ 		out.appendChild(li);
+	}
+	</script>
+</head>
+<body>
+	<ul id='out'>
+		
+	</ul>
+</body>
+</html>
