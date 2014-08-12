@@ -67,12 +67,12 @@ func WsServer(ws *websocket.Conn) {
 	defer func() {
 		close(ch)
 		Unsubscribe(index)
+		log.Print(fmt.Sprintf("Client %d disconnected", index))
 	}()
 	for {
 		data := <-ch
 		_, err := io.WriteString(ws, data)
 		if err != nil {
-			log.Print(fmt.Sprintf("Client %d disconnected", index))
 			break
 		}
 	}
