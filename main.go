@@ -12,11 +12,6 @@ import (
 	"sync"
 )
 
-type T struct {
-	Msg   string
-	Count int
-}
-
 var (
 	redis_addr  = flag.String("redis", ":6379", "redis addr")
 	port        = flag.String("port", "8080", "port to run the server on")
